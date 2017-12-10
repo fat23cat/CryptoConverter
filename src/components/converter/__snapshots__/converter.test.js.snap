@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components should render a Converter 1`] = `<Connect(Converter) />`;

@@ -1,0 +1,64 @@
+.currenciesinfo {
+  padding: 1.364rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 23.18rem;
+}
+
+.info-list {
+  width: 100%;
+  overflow-y: auto;
+}
+
+#info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #4b666e;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 0 5px 0;
+  font-size: 0.8182rem;
+  transition: all .5s;
+}
+
+.info--increment {
+  background-color: #acf9b6;
+  transition: all .5s;
+}
+
+.info--decrement {
+  background-color: #f78c9b;
+  transition: all .5s;
+}
+
+.info__name {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 45%;
+  align-items: center;
+  font-weight: 500;
+}
+
+.info__stat {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 55%;
+}
+
+.currency-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.currency-info--text {
+  width: 60%;
+}
+
+.currency-info--data {
+  width: 40%;
+}

@@ -1,0 +1,23 @@
+.header-list {
+  padding: 0.6818rem 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #d2ddd8;
+  border-radius: 7px 7px 0 0;
+  list-style-type: none;
+}
+
+.header-list__item {
+  font-size: 1rem;
+  cursor: pointer;
+  color: #4b666e;
+  text-decoration: none;
+  transition: all .5s;
+}
+
+.header-list__item:hover {
+  color: #c32439;
+  transition: all .5s;
+}

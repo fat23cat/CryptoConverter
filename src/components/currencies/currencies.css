@@ -1,0 +1,34 @@
+.currencies {
+  padding: 1.364rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 23.18rem;
+}
+
+.currencies__search {
+  border: 1px solid #4b666e;
+  outline: none;
+  font-size: 1rem;
+  font-family: 'Raleway';
+  border-radius: 5px;
+  margin: 0 0 20px 0;
+  width: 100%;
+}
+
+.currencies-list {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.currencies-list__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #4b666e;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 0 5px 0;
+  font-size: 0.8182rem;
+  transition: all .5s;
+}

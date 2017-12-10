@@ -1,0 +1,66 @@
+.converter {
+  padding:  1.364rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options-fields {
+  display: flex;
+  margin: 0 0  0.9091rem 0;
+  width: 100%;
+}
+
+.options-fields__input, .options-fields__select {
+  border: 1px solid #4b666e;
+  outline: none;
+  font-size: 1.091rem;
+  border-radius: 5px;
+  width: 70%;
+  font-family: 'Raleway';
+}
+
+.options-fields__text {
+  border: 1px solid #4b666e;
+  color: #4b666e;
+  font-size: 1.091rem;
+  border-radius: 5px;
+  width: 70%;
+  text-align: center;
+  background-color: #e0e5e3;
+  height: 1.455rem
+}
+
+.button-render {
+  text-align: center;
+  border: 1px solid #4b666e;
+  font-size: 1.091rem;
+  border-radius: 5px;
+  width: 50%;
+  cursor: pointer;
+  margin: 0 0 0.9091rem 0;
+  background-color: #c2d6ce;
+  transition: all .5s;
+}
+
+.button-render:hover {
+  background-color: #9accef;
+  transition: all .5s;
+}
+
+.options-fields__select {
+  margin: 0 0 0 5px;
+  width: 30%;
+}
+
+.converter__result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.636rem;
+  color: #4b666e;
+  border: 1px solid #4b666e;
+  border-radius: 5px;
+  width: 100%;
+  padding: 5px 0;
+}
