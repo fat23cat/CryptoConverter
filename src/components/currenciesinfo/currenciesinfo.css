@@ -24,12 +24,12 @@
 }
 
 .info--increment {
-  background-color: #acf9b6;
+  background-color: #d3ffd9;
   transition: all .5s;
 }
 
 .info--decrement {
-  background-color: #f78c9b;
+  background-color: #ffc4cc;
   transition: all .5s;
 }
 

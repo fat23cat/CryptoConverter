@@ -15,7 +15,9 @@ class CurrenciesInfo extends React.Component {
 
   componentDidMount() {
     const msec = 30000;
-    this.timerID = setInterval(() => this.props.fetchData('https://api.coinmarketcap.com/v1/ticker/?limit=30'), msec);
+    const currenciesCount = 30;
+    this.props.fetchData('https://api.coinmarketcap.com/v1/ticker/?limit=' + currenciesCount);
+    this.timerID = setInterval(() => this.props.fetchData('https://api.coinmarketcap.com/v1/ticker/?limit=' + currenciesCount), msec);
   }
 
   componentWillUnmount() {
@@ -40,8 +42,8 @@ class CurrenciesInfo extends React.Component {
       ...this.state,
       class: newClass
     });
-    console.log('USD', nextUSD[0]);
-    console.log('newClass', newClass);
+    //console.log('USD', nextUSD[0]);
+    //console.log('newClass', newClass);
     return true;
   }
 

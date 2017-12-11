@@ -12,7 +12,8 @@ class Currencies extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.fetchData('https://api.coinmarketcap.com/v1/ticker/?limit=30');
+    const currenciesCount = 30;
+    this.props.fetchData('https://api.coinmarketcap.com/v1/ticker/?limit=' + currenciesCount);
   }
 
   setFilterString = (event) => {

@@ -7,6 +7,22 @@
   /* Main widget */
   .crypto-widget {
     width: 20rem;
+    height: 20rem;
+  }
+
+  /* Currencies */
+  .currencies {
+    height: 15rem;
+  }
+
+  /* Converter */
+  .converter {
+    height: 15rem;
+  }
+
+  /* Currencies info */
+  .currenciesinfo {
+    height: 15rem;
   }
 
   /* Currencies info */
@@ -32,7 +48,7 @@
   /* Main widget */
   .crypto-widget {
     width: 16rem;
-    height: 28rem;
+    height: 22rem;
   }
 
   /* Header */
@@ -46,7 +62,7 @@
 
   /* Currencies */
   .currencies {
-    height: 23rem;
+    height: 17rem;
     padding: 1rem;
   }
 
@@ -56,7 +72,7 @@
 
   /* Converter */
   .converter {
-    height: 23rem;
+    height: 17rem;
     padding: 1rem;
   }
 
@@ -67,6 +83,7 @@
 
   .options-fields__select {
     width: 100%;
+    height: 100%;
     margin: 0;
     font-size: 0.9rem;
   }
@@ -80,7 +97,7 @@
 
   /* Currencies info */
   .currenciesinfo {
-    height: 23rem;
+    height: 17rem;
     padding: 1rem;
   }
 

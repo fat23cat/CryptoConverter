@@ -13,9 +13,9 @@ class Converter extends React.Component {
       isOpenInputError: false,
       inputValue: '',
       fromCurrency: this.props.selectedCurrencies[0],
-      toCurrency: this.props.selectedCurrencies[0],
+      toCurrency: this.props.selectedCurrencies[this.props.selectedCurrencies.length - 1],
       apiAnswer: null,
-      rezult: null
+      result: null
     }
   }
 
@@ -49,24 +49,28 @@ class Converter extends React.Component {
     });
   }
 
-  createRezult = () => {
+  createResult = () => {
     if (this.state.apiAnswer.Response === 'Error') {
       this.setState({
         ...this.state,
         isOpenAPIError: true
       });
     } else {
-      const multi = this.state.inputValue * this.state.apiAnswer[this.state.toCurrency];
+      const multi = this.replaceComma(this.state.inputValue) * this.state.apiAnswer[this.state.toCurrency];
       this.setState({
         ...this.state,
         isOpenResult: true,
-        rezult: multi
+        result: multi
       });
     }
   }
 
-  isFinite = () => {
-    let n = this.state.inputValue;
+  replaceComma = (str) => {
+    return str.replace(/,/g,'.');
+  }
+
+  isDigit = () => {
+    const n = this.replaceComma(this.state.inputValue);
     if(!isNaN(parseFloat(n)) && isFinite(n)) {
       this.sendRequest();
     } else {
@@ -76,12 +80,10 @@ class Converter extends React.Component {
         isOpenInputError: true
       })
     }
-
   }
 
   sendRequest = () => {
     const url = 'https://min-api.cryptocompare.com/data/price?fsym=' + this.state.fromCurrency + '&tsyms=' + this.state.toCurrency;
-    //console.log(url);
     this.setState({
       ...this.state,
       loadingStatus: true
@@ -101,17 +103,27 @@ class Converter extends React.Component {
           loadingStatus: false,
           apiAnswer: text
         })
-        //console.log(text[this.state.toCurrency]);
-        this.createRezult();
+        this.createResult();
         return text;
       })
       .catch((error) => {
-        //console.log(error);
         this.setState({
           ...this.state,
-          isOpenAPIError: true,
+          isOpenAPIError: true
         })
       });
+  }
+
+  changeDirection = () => {
+    const toCurrencyCopy = this.state.toCurrency;
+    const fromCurrencyCopy = this.state.fromCurrency;
+    this.setState({
+      ...this.state,
+      fromCurrency: toCurrencyCopy,
+      toCurrency: fromCurrencyCopy
+    }, () => {
+      this.isDigit();
+    });
   }
 
   render() {
@@ -133,6 +145,9 @@ class Converter extends React.Component {
             ))}
           </select>
         </div>
+        <div className='change-direction' onClick={this.changeDirection}>
+          <span className='change-direction--button'><img src='https://image.flaticon.com/icons/svg/339/339857.svg' alt='change direction' /></span>
+        </div>
         <div className='options-fields'>
           <span className='options-fields__text'>
             Into
@@ -145,12 +160,12 @@ class Converter extends React.Component {
             ))}
           </select>
         </div>
-        <span className='button-render' onClick={this.isFinite}>Convert it!</span>
+        <span className='button-render' onClick={this.isDigit}>Convert it!</span>
         {this.state.isOpenResult && (<span className='converter__result'>
-          {this.state.rezult} {this.state.toCurrency}
+          {this.state.result} {this.state.toCurrency}
         </span>)}
         {this.state.isOpenAPIError && (<Message text='API error' />)}
-        {this.state.isOpenInputError && (<Message text='You should input only digits, use " . " instead of " , "' />)}
+        {this.state.isOpenInputError && (<Message text='You should input digits' />)}
         {this.state.loadingStatus && (<Message text='Loading...' />)}
       </div>
     );
