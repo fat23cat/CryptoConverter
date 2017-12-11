@@ -26,6 +26,8 @@ class Converter extends React.Component {
       isOpenResult: false,
       isOpenInputError: false,
       fromCurrency: event.target.value
+    }, () => {
+      this.isDigit();
     });
   }
 
@@ -36,6 +38,8 @@ class Converter extends React.Component {
       isOpenResult: false,
       isOpenInputError: false,
       toCurrency: event.target.value
+    }, () => {
+      this.isDigit();
     });
   }
 
@@ -46,6 +50,8 @@ class Converter extends React.Component {
       isOpenResult: false,
       isOpenInputError: false,
       inputValue: event.target.value
+    }, () => {
+      this.isDigit();
     });
   }
 
@@ -146,7 +152,7 @@ class Converter extends React.Component {
           </select>
         </div>
         <div className='change-direction' onClick={this.changeDirection}>
-          <span className='change-direction--button'><img src='https://image.flaticon.com/icons/svg/339/339857.svg' alt='change direction' /></span>
+          <span className='change-direction--button'><img src='https://image.flaticon.com/icons/svg/570/570226.svg' alt='change direction' /></span>
         </div>
         <div className='options-fields'>
           <span className='options-fields__text'>
@@ -160,7 +166,7 @@ class Converter extends React.Component {
             ))}
           </select>
         </div>
-        <span className='button-render' onClick={this.isDigit}>Convert it!</span>
+        
         {this.state.isOpenResult && (<span className='converter__result'>
           {this.state.result} {this.state.toCurrency}
         </span>)}

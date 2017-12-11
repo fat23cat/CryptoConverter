@@ -7,7 +7,7 @@
 
 .options-fields {
   display: flex;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 10px 0;
   width: 100%;
 }
 
@@ -42,14 +42,14 @@
   background-color: #e0e5e3;
 }
 
-.button-render {
+/*.button-render {
   text-align: center;
   border: 1px solid #4b666e;
   font-size: 1.091rem;
   border-radius: 5px;
   width: 50%;
   cursor: pointer;
-  margin: 0 0 0.9091rem 0;
+  margin: 0.3rem 0 0.9091rem 0;
   background-color: #c2d6ce;
   transition: all .5s;
 }
@@ -57,7 +57,7 @@
 .button-render:hover {
   background-color: #9accef;
   transition: all .5s;
-}
+}*/
 
 .options-fields__select {
   margin: 0 0 0 5px;
@@ -73,5 +73,7 @@
   border: 1px solid #4b666e;
   border-radius: 5px;
   width: 100%;
+  margin: 10px 0 0 0;
   padding: 5px 0;
+  background-color: #d3ffd9;
 }
