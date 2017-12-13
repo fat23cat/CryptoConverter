@@ -23,17 +23,16 @@ class Currencies extends React.Component {
   }
 
   render() {
+    if(this.props.statusLoading) {
+      return (
+        <Message text='Loading...'/>
+      );
+    }
+    
     //console.log(this.props.selectedCurrencies);
     if(this.props.statusError) {
       return (
         <Message text='Error API request'/>
-      );
-    }
-
-    if(this.props.statusLoading) {
-      //console.log('Loading',this.props.statusLoading);
-      return (
-        <Message text='Loading...'/>
       );
     }
 

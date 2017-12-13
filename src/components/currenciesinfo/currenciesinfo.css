@@ -11,7 +11,7 @@
   overflow-y: auto;
 }
 
-#info {
+.info {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,12 +23,12 @@
   transition: all .5s;
 }
 
-.info--increment {
+#info--increment {
   background-color: #d3ffd9;
   transition: all .5s;
 }
 
-.info--decrement {
+#info--decrement {
   background-color: #ffc4cc;
   transition: all .5s;
 }

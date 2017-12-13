@@ -11,17 +11,17 @@ export function getDataSuccess(currencies) {
   };
 }
 
-export function dataError(bool) {
+export function dataError(status) {
   return {
     type: DATA_ERROR,
-    status: bool
+    status
   }
 }
 
-export function dataProcess(bool) {
+export function dataProcess(status) {
   return {
     type: DATA_PROCESS,
-    status: bool
+    status
   }
 }
 

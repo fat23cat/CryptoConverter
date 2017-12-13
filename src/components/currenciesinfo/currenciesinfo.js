@@ -8,7 +8,7 @@ class CurrenciesInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      class: [],
+      id: [],
       filterString: ''
     };
   }
@@ -25,26 +25,29 @@ class CurrenciesInfo extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const nextUSD = nextProps.currencies.map((item) => item.price_usd);
+    const filteredCurrencies = this.props.currencies.filter((item) => item.name.toLowerCase().indexOf(this.state.filterString.toLowerCase()) >= 0);
+    const currenciesID = filteredCurrencies.map((item) => item.id);
     const currentUSD = this.props.currencies.map((item) => item.price_usd);
-    const newClass = [];
-    const length = currentUSD.length;
-    for (let i = 0; i < length; i++) {
-      if (currentUSD[i] - nextUSD[i] > 0) {
-        newClass.push('info--decrement');
-      } else if (currentUSD[i] - nextUSD[i] < 0) {
-        newClass.push('info--increment');
-      } else {
-        newClass.push('');
-      }
-    }
+    const nextUSD = nextProps.currencies.map((item) => item.price_usd);
+    const nextCurrenciesID = nextProps.currencies.map((item) => item.id);
+    const newID = [];
+    currenciesID.forEach((item, i) => {
+      nextCurrenciesID.forEach((item, j) => {
+        if (currenciesID[i] === nextCurrenciesID[j]) {
+          if (currentUSD[j] - nextUSD[j] > 0) {
+            newID.push('info--decrement');
+          } else if (currentUSD[j] - nextUSD[j] < 0) {
+            newID.push('info--increment');
+          } else {
+            newID.push('');
+          }
+        }
+      })
+    })
     this.setState({
       ...this.state,
-      class: newClass
+      id: newID
     });
-    //console.log('USD', nextUSD[0]);
-    //console.log('newClass', newClass);
-    return true;
   }
 
   setFilterString = (event) => {
@@ -55,7 +58,7 @@ class CurrenciesInfo extends React.Component {
   }
 
   render() {
-    if(this.props.status) {
+    if(this.props.statusError) {
       return (
         <Message text='Error API request'/>
       );
@@ -68,7 +71,7 @@ class CurrenciesInfo extends React.Component {
         <input className='currencies__search' type='text' placeholder='Search currency...' value={this.state.filterString} onChange={this.setFilterString}/>
         <ul className='info-list'>
           {filteredCurrencies.map((item, i) => (
-            <li id='info' className={this.state.class[i]} key={item.symbol}>
+            <li id={this.state.id[i]} className='info' key={item.symbol}>
               <div className='info__name'>
                 <span>
                 {item.name} / {item.symbol}
@@ -115,7 +118,7 @@ class CurrenciesInfo extends React.Component {
 const mapStateToProps = (state) => {
     return {
         currencies: state.currencies,
-        status: state.dataError
+        statusError: state.dataError,
     };
 };
 

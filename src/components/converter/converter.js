@@ -166,7 +166,7 @@ class Converter extends React.Component {
             ))}
           </select>
         </div>
-        
+
         {this.state.isOpenResult && (<span className='converter__result'>
           {this.state.result} {this.state.toCurrency}
         </span>)}

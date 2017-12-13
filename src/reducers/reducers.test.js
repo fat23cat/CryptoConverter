@@ -30,13 +30,12 @@ describe('currenciesReducer', () => {
 
 describe('dataErrorReducer', () => {
   it('should return the initial state', () => {
-    const status = false;
-    expect(currenciesReducer(status, {})).toEqual(false)
+    expect(dataErrorReducer(undefined, {})).toEqual(false)
   })
   it('should handle DATA_ERROR', () => {
     const status = true;
     expect(
-      currenciesReducer(status, {
+      dataErrorReducer(status, {
         type: DATA_ERROR,
         status
       })
@@ -47,7 +46,7 @@ describe('dataErrorReducer', () => {
 describe('dataProcessReducer', () => {
   it('should return the initial state', () => {
     const status = false;
-    expect(dataProcessReducer(status, {})).toEqual(false)
+    expect(dataProcessReducer(undefined, {})).toEqual(false)
   })
   it('should handle DATA_PROCESS', () => {
     const status = true;
@@ -62,12 +61,14 @@ describe('dataProcessReducer', () => {
 
 describe('selectedCurrenciesReducer', () => {
   it('should return the initial state', () => {
-    expect(selectedCurrenciesReducer(undefined, {})).toEqual(['USD', 'RUB', 'EUR'])
+    const currencies = ['USD', 'RUB', 'EUR'];
+    expect(selectedCurrenciesReducer(currencies, {})).toEqual(['USD', 'RUB', 'EUR'])
   })
   it('should handle ADD_COIN', () => {
+    const currencies = ['USD', 'RUB', 'EUR'];
     const coin = 'BTC';
     expect(
-      selectedCurrenciesReducer(undefined, {
+      selectedCurrenciesReducer(currencies, {
         type: ADD_COIN,
         coin
       })
