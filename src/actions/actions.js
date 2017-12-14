@@ -49,6 +49,7 @@ export function getCurrencies(url) {
         dispatch(getDataSuccess(text))
       })
       .catch((error) => {
+        dispatch(dataProcess(false));
         dispatch(dataError(true));
       });
   }
