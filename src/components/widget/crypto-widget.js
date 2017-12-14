@@ -15,8 +15,8 @@ class CryptoWidget extends React.Component {
         <Header />
         <Switch>
           <Route exact path='/' component={Currencies}/>
-          <Route path='/converter' component={Converter}/>
-          <Route path='/currenciesinfo' component={CurrenciesInfo}/>
+          <Route exact path='/converter' component={Converter}/>
+          <Route exact path='/currenciesinfo' component={CurrenciesInfo}/>
           <Route path='*' component={NotFound}/>
         </Switch>
       </div>
